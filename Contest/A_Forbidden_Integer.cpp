@@ -1,0 +1,91 @@
+//Code bhi krle kitna game khelega//
+#include<bits/stdc++.h>
+#include<iomanip>
+using namespace std;
+#define ll long long int
+#define llf long long float
+#define yes cout<<"YES"<<endl;
+#define no cout<<"NO"<<endl;
+#define nm cout<<"-1"<<endl;
+#define F first 
+#define S second
+#define pb push_back
+#define ppb pop_back
+#define st sort(v.begin(), v.end());
+#define stg sort(v.begin(), v.end(), greater<>());
+#define pi  3.14 
+#define mod 1e9+7
+// Jda mt soch code krte ja //
+
+bool cmp(pair<string, int>& a, pair<string, int>& b){ return a.second < b.second; }
+
+// Conversions //
+string decToBinary(int n){string s=""; int i = 0;while (n > 0) {s =to_string(n % 2)+s;n = n / 2;i++;}return s;}
+ll binaryToDecimal(string n){string num = n;ll dec_value = 0;int base = 1;int len = num.length();for(int i = len - 1; i >= 0; i--){if (num[i] == '1')dec_value += base;base = base * 2;}return dec_value;}
+
+// Maths //
+ll gcd(ll a, ll b){ if(b==0) return a; return gcd(b, a%b);} 
+ll lcm(ll a, ll b){ return (a/gcd(a,b)*b); }
+void solve(){
+ll count = 0;
+ll count1 = 0;
+vector<ll> v;
+  ll n,k,x;
+  cin>>n>>k>>x;
+  if(x==1 && k==1){
+    no
+    return;
+  }
+  if(x!=1){
+    yes
+    cout<<n<<endl;
+    for(int i=0; i<n; i++){
+        cout<<1<<" ";
+    }
+    cout<<endl;
+  }
+  else{
+    if(k==2){
+        if(n&1){
+            no
+        }
+        else{
+            yes
+            cout<<n/2<<endl;
+            for(int i=0; i<n/2; i++){
+                cout<<2<<" ";
+            }
+            cout<<endl;
+        }
+    }
+    else{
+        if(n&1){
+            yes
+            cout<<(n-3)/2+1<<endl;
+            cout<<3<<" ";
+            for(int i=0; i<(n-3)/2; i++){
+                cout<<2<<" ";
+            }
+            cout<<endl;
+        }
+        else{
+            yes
+            cout<<n/2<<endl;
+            for(int i=0; i<n/2; i++){
+                cout<<2<<" ";
+            }
+            cout<<endl;
+        }
+    }
+  }
+}
+
+
+int main(){
+  ll testcases;
+  cin>>testcases;
+  while(testcases--){
+  solve();
+ }
+return 0;
+}
